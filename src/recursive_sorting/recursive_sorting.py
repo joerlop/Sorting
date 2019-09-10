@@ -6,24 +6,24 @@ def merge( arrA, arrB ):
     for i in range(len(merged_arr)):
 
         if len(arrA) == 0:
-            for item in arrB:
-                merged_arr[i] = item
-            break
-        elif len(arrB) == 0:
-            for item in arrA:
-                merged_arr[i] = item
-            break
+            merged_arr[i] = arrB[0]
+            arrB.pop(0)
 
-        if arrA[0] <= arrB[0]:
+        elif len(arrB) == 0:
             merged_arr[i] = arrA[0]
             arrA.pop(0)
+
+        elif arrA[0] <= arrB[0]:
+            merged_arr[i] = arrA[0]
+            arrA.pop(0)
+
         else:
             merged_arr[i] = arrB[0]
             arrB.pop(0)
 
     return merged_arr
 
-print(f"merge: {merge([1, 2, 100], [0, 5, 7, 99])}")
+print(f"merge: {merge([1, 2, 100, 500], [0, 5, 7, 99, 8000, 10000, 100000])}")
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
