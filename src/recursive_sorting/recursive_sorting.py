@@ -31,22 +31,15 @@ def merge_sort( arr ):
     # (a single element cannot be "out of order")
     if len(arr) > 1:
         middle = len(arr) // 2
-        left_arr = arr[0:middle]
-        right_arr = arr[middle:]
 
-        left_arr = merge_sort(left_arr)
+        left_arr = merge_sort(arr[0:middle])
 
-        right_arr = merge_sort(right_arr)
-
-        arr = merge(left_arr, right_arr)
-
-    
-
+        right_arr = merge_sort(arr[middle:])
     # 3. Start merging your single lists of one element together into larger, sorted sets
+        arr = merge(left_arr, right_arr)
     # 4. Repeat step 3 until the entire data set has been reassembled
     return arr
 
-print(f"sorted arr: {merge_sort([1, 4, 2, 500, 900, 1, 0, 23, 24])}")
 
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
