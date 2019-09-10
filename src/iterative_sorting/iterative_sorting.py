@@ -34,8 +34,12 @@ def bubble_sort( arr ):
                 arr[i] = arr[i - 1]
                 arr[i - 1] = temp
                 swaps += 1
-
+        print(f"arr1: {arr}")
     return arr
+
+arr1 = [1, 10, 5, 20, 2, 25, 5, 4, 3, 10]
+
+print(bubble_sort(arr1))
 
 # STRETCH: implement the Count Sort function below
 def count_sort( arr, maximum=-1 ):
